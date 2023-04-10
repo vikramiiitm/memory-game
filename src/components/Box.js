@@ -27,7 +27,15 @@ export default function Box() {
                 console.log('fff: ',img_object1,allimages[img_object1])
                 let img_object2 = allimages.findIndex((image => image.title == img2.title)); // Jan's method: a.indexOf(99, a.indexOf(99) + 1)
                 allimages[img_object2].solved = true
-                console.log('fff: ',img_object2,allimages[img_object2])
+                // console.log('fff: ',img_object2,allimages[img_object2])
+                // getting the index of other image of pair
+                var img2_index = 0
+                allimages.forEach(function(image,index){
+                    if(image.title==img2.title && img_object1!==index){
+                        img2_index = index
+                    }
+                })
+                allimages[img2_index].solved = true
             }
             
         }
