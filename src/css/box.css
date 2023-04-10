@@ -7,7 +7,7 @@
   grid-template-columns: repeat(4, 130px);
   grid-template-rows: repeat(4, 130px);
   gap: 10px;
-  background-color: #000000;
+  background-color: #f4dcdc;
 
   /* make the box in center of the screen */
   justify-content: center;
@@ -23,10 +23,19 @@
     display: grid;
     /* place the item in center */
     place-items: center;
+    cursor: pointer;
 }
 
+img {
+  width: 128px;
+  height: 128px;
+  cursor: pointer;
+}
 
-.elon {
+.hide {
+  display: none;
+}
+/* .elon {
     text-align: center;
     height: 128px;
     width: 128px;
@@ -34,7 +43,7 @@
     background-repeat: no-repeat;
     background-size: 100%;
     border-radius: 5px;
-  }
+  } */
 
   .flip {
     background-color: dodgerblue;

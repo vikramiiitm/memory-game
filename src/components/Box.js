@@ -1,12 +1,21 @@
 import React, { useEffect, useRef, useState } from 'react'
 import '../css/box.css'
+import { images } from './Images';
 export default function Box() {
-    const renderCount = useRef(1);
+    const renderCount = useRef(0);
     const [name, setname] = useState(true)
+    const [allimages, setAllImages] = useState(images.concat(images))
+    const [activeImage, setActiveImage] = useState([])
 
-    const unflip = (id) =>{
-        document.getElementById('elon').classList.remove('flip')
-        setname(!name) //Changing state for flip
+    const similar = () => {
+
+    }
+
+    const unflip = (img_index) =>{
+        console.log('called unflip')
+            images.forEach(function(image, index){
+                document.getElementById(image.title+img_index).classList.add('hide')
+            })
     }
     // count number of renders
     useEffect(()=>{
@@ -14,38 +23,32 @@ export default function Box() {
 
         // timeout for flip
         const timer = setTimeout(() => {
-            console.log('calling unflip')
-            unflip('elon');
           }, 2000);
           return () => clearTimeout(timer);
 
     })
-    const flip = () => {
-        document.getElementById("elon").classList.add('flip')
-        setname(!name) //chnaging state for flip
+    const flip = (image, index) => {
+        if ((renderCount.current+1)%2==0){
+            unflip(index)
+        }
+        if (!image.display){
+            let id = image.title+index
+            console.log('called flip', id)
+            document.getElementById(id).classList.remove('hide')
+            image.display = true
+            setname(!name)
+        }
     }
+    console.log('count: ', renderCount.current)
 
     return (
     <div className='container'>
         <div className='grid-container'>
-            <div className='grid-item'>
-                <div className='elon' id="elon" onClick={()=>{flip()}}></div>
-            </div>
-            <div className='grid-item'>Item1</div>
-            <div className='grid-item'>Item2</div>
-            <div className='grid-item'>Item3</div>
-            <div className='grid-item'>Item4</div>
-            <div className='grid-item'>Item5</div>
-            <div className='grid-item'>Item6</div>
-            <div className='grid-item'>Item7</div>
-            <div className='grid-item'>Item8</div>
-            <div className='grid-item'>Item9</div>
-            <div className='grid-item'>Item10</div>
-            <div className='grid-item'>Item11</div>
-            <div className='grid-item'>Item11</div>
-            <div className='grid-item'>Item11</div>
-            <div className='grid-item'>Item11</div>
-            <div className='grid-item'>Item11</div>
+            {allimages.map((image, index)=>{
+                return <div className='grid-item' onClick={()=>flip(image, index)}>
+                    <img src={image.location} className='hide' id={image.title+index}></img>
+                </div>
+            })}
         </div>
     </div>
     
