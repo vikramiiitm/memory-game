@@ -1,13 +1,23 @@
-
-.grid-container {
+.container {
   width: 100vw;
   height: 100vh;
+  /* background-image: none!important; */
+  background-color: #000000!important;
+}
+.play_score {
+  padding: 20px;
+  font-size: 30px;
+  color: #FB2576;
+}
+.grid_container {
+  width: 100vw;
+  margin-top: 50px;
   justify-content: center;
   display: grid;
   grid-template-columns: repeat(4, 130px);
   grid-template-rows: repeat(4, 130px);
   gap: 10px;
-  background-color: #f4dcdc;
+  /* background-color: #f4dcdc; */
 
   /* make the box in center of the screen */
   justify-content: center;
@@ -16,7 +26,7 @@
   background-image: none!important;
 }
 
-.grid-item {
+.grid_item {
     background-color: #FB2576;
     color: rgb(102, 202, 21);
     border-radius: 5px;
@@ -30,10 +40,18 @@ img {
   width: 128px;
   height: 128px;
   cursor: pointer;
+  border-radius: 5px;
 }
 
 .hide {
   display: none;
+}
+
+.solved {
+  /* background-image: unset; */
+  width: 128px;
+  height: 128px;
+  background-image: url('../assets/solved.jpg')!important;
 }
 /* .elon {
     text-align: center;
@@ -45,11 +63,11 @@ img {
     border-radius: 5px;
   } */
 
-  .flip {
-    background-color: dodgerblue;
-    color: white;
-    transform: rotateY(180deg);
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-    backface-visibility: hidden;
-  }
+.flip {
+  background-color: dodgerblue;
+  color: white;
+  transform: rotateY(180deg);
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
