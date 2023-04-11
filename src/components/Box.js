@@ -2,11 +2,21 @@ import React, { useEffect, useRef, useState } from 'react'
 import style from '../css/box.module.css'
 import { images } from './Images';
 export default function Box() {
-    const renderCount = useRef(0);
     const [name, setname] = useState(true)
-    const [allimages, setAllImages] = useState(images)
+    const [allimages, setAllImages] = useState(()=>images.sort(() => Math.random() - 0.36))
     const [activeImage, setActiveImage] = useState([])
-    const [unactiveImages, setUnactiveImages] = useState([])
+    const [unactiveImages, setUnactiveImages] = useState(0)
+    const [moves, setMoves] = useState(0)
+    const [seconds, setSeconds] = useState(0)
+
+    // console.log('img: ',allimages)
+
+    // function Timer(){    
+    //     useEffect(() =>{
+    //         if(counter > 0){
+    //             setTimeout(()=>setSeconds(seconds+1), 1000);
+    //         }
+    //     },[counter]);
 
     const similar = (image) => {
         if(activeImage){
@@ -36,6 +46,7 @@ export default function Box() {
                     }
                 })
                 allimages[img2_index].solved = true
+                setUnactiveImages(unactiveImages+2)
             }
             
         }
@@ -49,10 +60,8 @@ export default function Box() {
             activeImage.pop()
         })
     }
-    // count number of renders
-    useEffect(() => {
-        renderCount.current = renderCount.current + 1
 
+    useEffect(() => {
         // timeout for flip
         const timer = setTimeout(() => {
         }, 2000);
@@ -67,15 +76,17 @@ export default function Box() {
 
     const flip = (image, index) => {
         // console.log('index: ', index)
-        if ((renderCount.current + 1) % 2 == 0 ) {
+        if ((moves) % 2 == 0 ) {
             // similar()
             unflip(index)
-        }
-        if ((renderCount.current) % 2 == 0) {
             similar(image)
+        }
+        if ((moves) % 2 == 0) {
+            // similar(image)
             // unflip(index)
         }
         if (!image.display && !image.solved) {
+            setMoves(moves+1)
             let id = image.title + index
             let [img1, img2] = activeImage 
             // console.log('called flip', id)
@@ -87,7 +98,7 @@ export default function Box() {
 
     return (
         <div className={style.container} style={{backgroundColor:'#f4dcdc'}}>
-            <div className={style.play_score}> Move: {renderCount.current}</div>
+            <div className={style.play_score}> Move: {moves}</div>
             <div className={style.grid_container}>
                 {allimages.map((image, index) => {
                     return <div id={image.title+index+'_c'} className={style.grid_item} onClick={() => flip(image, index)}>
