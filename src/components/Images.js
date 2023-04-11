@@ -7,14 +7,14 @@ export const images = [
     },
     {
         title: 'chichen',
-        location: require('../assets/chichen.webp'),
+        location: require('../assets/chichen.jpg'),
         display: false,
         solved: false
     }
     ,
     {
         title: 'christ',
-        location: require('../assets/christ.webp'),
+        location: require('../assets/christ.jpg'),
         display: false,
         solved: false
     },
@@ -38,13 +38,13 @@ export const images = [
     },
     {
         title: 'petra',
-        location: require('../assets/petra.avif'),
+        location: require('../assets/petra.jpg'),
         display: false,
         solved: false
     },
     {
         title: 'pyramid',
-        location: require('../assets/pyramids.avif'),
+        location: require('../assets/pyramids.jpg'),
         display: false,
         solved: false
     },
@@ -56,14 +56,14 @@ export const images = [
     },
     {
         title: 'chichen',
-        location: require('../assets/chichen.webp'),
+        location: require('../assets/chichen.jpg'),
         display: false,
         solved: false
     }
     ,
     {
         title: 'christ',
-        location: require('../assets/christ.webp'),
+        location: require('../assets/christ.jpg'),
         display: false,
         solved: false
     },
@@ -87,13 +87,13 @@ export const images = [
     },
     {
         title: 'petra',
-        location: require('../assets/petra.avif'),
+        location: require('../assets/petra.jpg'),
         display: false,
         solved: false
     },
     {
         title: 'pyramid',
-        location: require('../assets/pyramids.avif'),
+        location: require('../assets/pyramids.jpg'),
         display: false,
         solved: false
     }

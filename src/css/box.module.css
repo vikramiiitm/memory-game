@@ -71,3 +71,35 @@ img {
   transform-style: preserve-3d;
   backface-visibility: hidden;
 }
+
+.reset {
+cursor: pointer;
+font-family: 'Sedgwick Ave Display', cursive;
+font-size: 70px;
+text-align: center;
+align-items:center;
+vertical-align:bottom;
+color: rgb(152, 238, 238);
+padding-top: 30vh;
+}
+
+.text {
+  font-family: 'Sedgwick Ave Display', cursive;
+  font-size: 70px;
+  text-align: center;
+  align-items:center;
+  vertical-align:bottom;
+  color: rgb(152, 238, 238);
+  padding-top: 30vh;
+}
+
+.reset:hover {
+  cursor: pointer;
+  font-family: 'Sedgwick Ave Display', cursive;
+  font-size: 70px;
+  text-align: center;
+  align-items:center;
+  vertical-align:bottom;
+  color: dodgerblue;
+  padding-top: 30vh;
+  }
