@@ -1,65 +1,62 @@
-
+.container {
+  width: 100vw;
+  height: 100vh;
+  background-color: #ea5455;
+}
 .card {
   position: relative;
 }
+.moves {
+  margin-bottom: 50px;
+  font-family: "Sedgwick Ave Display", cursive;
+  font-size: 30px;
+  text-align: center;
+  align-items: center;
+  color: #f9f5eb;
+  margin: 0px;
+  padding-top: 10px;
+  margin-bottom: 26px;
+}
 
 .grid_container {
-  justify-content: center;
+  /* width: 100vw;
+  height: 100vh; */
+  /* justify-content: center; */
   display: grid;
   grid-template-columns: repeat(4, 130px);
-  gap: 10px;
+  gap: 5px;
 
   justify-content: center;
   align-content: center;
-  color: rgb(138, 133, 34);
-  background-image: none!important;
+  color: rgb(211, 203, 51);
+  background-image: none !important;
 }
 
 .card img {
-  width: 128px;
-  height: 128px;
+  width: 120px;
+  height: 120px;
   display: block;
   border: 2px solid #fff;
   border-radius: 6px;
 }
 
+/* front of card - the picture */
 .card .image {
   transform: rotateY(90deg);
   transition: all ease-in 0.2s;
   position: absolute;
 }
-
-.flip .image {
-  transform: rotateY(0deg);
-  transition: all ease-in 0.2s;
-  /* position: absolute; */
-}
-.card .background {
-  transition: all ease-in 0.2s;
-  /* position: absolute; */
-}
-.flip .background {
-  transform: rotateY(90deg); 
-  transition: all ease-in 0.2s;
-}
-
-/* front of card - the picture */
-.card .front {
-  transform: rotateY(90deg);
-  transition: all ease-in 0.2s;
-  position: absolute;
-}
-.flipped .front {
+.turn .image {
   transform: rotateY(0deg);
   transition-delay: 0.2s;
 }
 
 /* back of card - cover */
-.card .back {
+.card .background {
   transition: all ease-in 0.2s;
   transition-delay: 0.2s;
 }
-.flipped .back {
+.turn .background {
   transform: rotateY(90deg);
   transition-delay: 0s;
 }
