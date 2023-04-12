@@ -1,105 +1,65 @@
-.container {
-  width: 100vw;
-  height: 100vh;
-  /* background-image: none!important; */
-  background-color: #000000!important;
+
+.card {
+  position: relative;
 }
-.play_score {
-  padding: 20px;
-  font-size: 30px;
-  color: #FB2576;
-}
+
 .grid_container {
-  width: 100vw;
-  margin-top: 50px;
   justify-content: center;
   display: grid;
   grid-template-columns: repeat(4, 130px);
-  grid-template-rows: repeat(4, 130px);
   gap: 10px;
-  /* background-color: #f4dcdc; */
 
-  /* make the box in center of the screen */
   justify-content: center;
   align-content: center;
   color: rgb(138, 133, 34);
   background-image: none!important;
 }
 
-.grid_item {
-    background-color: #FB2576;
-    color: rgb(102, 202, 21);
-    border-radius: 5px;
-    display: grid;
-    /* place the item in center */
-    place-items: center;
-    cursor: pointer;
-}
-
-img {
+.card img {
   width: 128px;
   height: 128px;
-  cursor: pointer;
-  border-radius: 5px;
+  display: block;
+  border: 2px solid #fff;
+  border-radius: 6px;
 }
 
-.hide {
-  display: none;
+.card .image {
+  transform: rotateY(90deg);
+  transition: all ease-in 0.2s;
+  position: absolute;
 }
 
-.solved {
-  /* background-image: unset; */
-  width: 128px;
-  height: 128px;
-  background-image: url('../assets/solved.jpg')!important;
+.flip .image {
+  transform: rotateY(0deg);
+  transition: all ease-in 0.2s;
+  /* position: absolute; */
 }
-/* .elon {
-    text-align: center;
-    height: 128px;
-    width: 128px;
-    background-image: url("../../public/static/images/elon.jpg");
-    background-repeat: no-repeat;
-    background-size: 100%;
-    border-radius: 5px;
-  } */
-
-.flip {
-  background-color: dodgerblue;
-  color: white;
-  transform: rotateY(180deg);
-  transition: transform 0.8s;
-  transform-style: preserve-3d;
-  backface-visibility: hidden;
+.card .background {
+  transition: all ease-in 0.2s;
+  /* position: absolute; */
+}
+.flip .background {
+  transform: rotateY(90deg); 
+  transition: all ease-in 0.2s;
 }
 
-.reset {
-cursor: pointer;
-font-family: 'Sedgwick Ave Display', cursive;
-font-size: 70px;
-text-align: center;
-align-items:center;
-vertical-align:bottom;
-color: rgb(152, 238, 238);
-padding-top: 30vh;
+/* front of card - the picture */
+.card .front {
+  transform: rotateY(90deg);
+  transition: all ease-in 0.2s;
+  position: absolute;
+}
+.flipped .front {
+  transform: rotateY(0deg);
+  transition-delay: 0.2s;
 }
 
-.text {
-  font-family: 'Sedgwick Ave Display', cursive;
-  font-size: 70px;
-  text-align: center;
-  align-items:center;
-  vertical-align:bottom;
-  color: rgb(152, 238, 238);
-  padding-top: 30vh;
+/* back of card - cover */
+.card .back {
+  transition: all ease-in 0.2s;
+  transition-delay: 0.2s;
 }
-
-.reset:hover {
-  cursor: pointer;
-  font-family: 'Sedgwick Ave Display', cursive;
-  font-size: 70px;
-  text-align: center;
-  align-items:center;
-  vertical-align:bottom;
-  color: dodgerblue;
-  padding-top: 30vh;
-  }
+.flipped .back {
+  transform: rotateY(90deg);
+  transition-delay: 0s;
+}
