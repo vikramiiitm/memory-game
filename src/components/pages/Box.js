@@ -1,7 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react'
-import style from '../css/box.module.css'
-import { images } from './Images';
-import Card from './Card';
+
+import style from '../../assets/css/box.module.css'
+import { images } from '../Images';
+import Card from '../Card';
+
 export default function Box() {
     const [allimages, setAllImages] = useState([]);
     const [cardSelected1, setCardSelected1] = useState(null)
@@ -11,6 +13,21 @@ export default function Box() {
     const [timer, setTimer] = useState(null);
     const [seconds, setSeconds] = useState(0)
     const [win, setWin] = useState(false)
+
+    const startGame = () => {
+        const randomize = [...images, ...images].sort(() => Math.random() - 0.5).
+            map((cards) => ({ ...cards, id: Math.random() }))
+
+        setAllImages(randomize);
+        setCardSelected1(null);
+        setCardSelected2(null)
+        setTimer(null);
+        setMoves(0);
+        setSeconds(0);
+        setWin(false);
+        setDisabled(false)
+        stopTime()
+    }
 
     // Count Time
     useEffect(() => {
@@ -30,7 +47,7 @@ export default function Box() {
             if(image.solved){
                 count=count+1
             }
-        if(count===16){
+        if(count===allimages.length){
             setWin(true)
             stopTime()
         }
@@ -43,20 +60,6 @@ export default function Box() {
         setTimer(null)
     }
 
-    const startGame = () => {
-        const randomize = [...images, ...images].sort(() => Math.random() - 0.5).
-            map((cards) => ({ ...cards, id: Math.random() }))
-
-        setAllImages(randomize);
-        setCardSelected1(null);
-        setCardSelected2(null)
-        setTimer(null);
-        setMoves(0);
-        setSeconds(0);
-        setWin(false);
-        setDisabled(false)
-        stopTime()
-    }
     // compare 2 selected cards
     useEffect(() => {
         if (cardSelected1 || cardSelected2){
@@ -108,7 +111,7 @@ export default function Box() {
             {win && <div className={style.moves}>Congrats!! You won. Moves: {moves} Time: {seconds} seconds</div>}
             {win && <div className={style.moves} onClick={startGame}>Play again</div>}
             <div className={style.grid_container}>
-                {allimages.map((image, index) => {
+                {allimages.map((image) => {
                     return <div>
                         <Card key={image.id} className card={image}
                             handleClick={handleCardClick}

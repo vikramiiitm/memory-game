@@ -19,9 +19,6 @@
 }
 
 .grid_container {
-  /* width: 100vw;
-  height: 100vh; */
-  /* justify-content: center; */
   display: grid;
   grid-template-columns: repeat(4, 130px);
   gap: 5px;

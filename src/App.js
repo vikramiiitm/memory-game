@@ -1,8 +1,7 @@
-import logo from './logo.svg';
-import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Box from './components/Box';
-import LandingPage from './components/LandingPage';
+
+import Box from './components/pages/Box';
+import LandingPage from './components/pages/LandingPage';
 
 function App() {
   return (
